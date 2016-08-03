@@ -73,7 +73,7 @@ public class Client {
                 int nickels = remainder / 5;
                 remainder = remainder - (nickels * 5);
 
-                int pennies = remainder / 01;
+                int pennies = remainder / 1;
 
                 System.out.println("The smallest amount of coins you could have: ");
                 System.out.println("Quarters: " + quarters);
