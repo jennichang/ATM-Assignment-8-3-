@@ -35,25 +35,29 @@ public class Client {
             System.out.println("Thank you and please come again");
         } else if (activity.equalsIgnoreCase("2")) {
             System.out.println("How much would you like to withdraw today?");
-            withdraw = ATM.scanner.nextInt(); // why when i had int in the beginning my moneyleft variable didn't work?
+            withdraw = ATM.scanner.nextInt();
+
+            moneyLeft = 100 - withdraw;
 
             if (withdraw > 100) {
                 throw new Exception("You don't have this much, sorry.");
             } else if(withdraw == 0) {
                 System.out.println("Why did you come here then?");
+                System.out.println(System.lineSeparator() + "You have $" + moneyLeft + " left in your account." +
+                System.lineSeparator() + "Thank you and please come again.");
             } else if(withdraw % 5 != 0) { // it seems like i just need $5 because that will capture 10 and 20
                 System.err.println ("Please enter in multiples of $5, $10 or $20");
+                System.out.println("You have $100 left in your account." + System.lineSeparator() +
+                        "Please retry your withdrawal.");
             } else {
                 System.out.println("Please take your " + "$" + withdraw);
+                System.out.println(System.lineSeparator() + "You have $" + moneyLeft + " left in your account." +
+                System.lineSeparator() + "Thank you and please come again.");
             }
         } else {
             throw new Exception("No valid activity");
         }
 
-        int moneyLeft = 100 - withdraw;
-
-        System.out.println(System.lineSeparator() + "You have $" + moneyLeft + " left in your account." +
-                System.lineSeparator() + "Thank you and please come again.");
 
     }
 }
